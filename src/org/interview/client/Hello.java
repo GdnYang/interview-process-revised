@@ -120,7 +120,23 @@ public class Hello implements EntryPoint {
             }
         });
         
+        // Add a handler to clearPersonButton
+        clearPersonButton.addClickHandler(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent event) {
+                personId.setText("");
+		personName.setText("");
+            }
+        });
 
+	// Add a handler to countCallButton
+        countCallButton.addClickHandler(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent event) {
+                // get countCall from server
+            }
+        });
+        
         // Create a handler for the sendButton and nameField
         class MyHandler implements ClickHandler, KeyUpHandler {
             /**
@@ -147,7 +163,7 @@ public class Hello implements EntryPoint {
                 errorLabel.setText("");
                 String textToServer = nameField.getText();
                 if (!FieldVerifier.isValidName(textToServer)) {
-                    errorLabel.setText("Please enter more than 4 caracters");
+                    errorLabel.setText("Please enter name with at least 4 or more caracters");
                     return;
                 }
 
